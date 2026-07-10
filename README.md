@@ -4,8 +4,18 @@ A simple Windows utility that restores PDF previews in File Explorer by removing
 
 **Current Version:** 1.0.0
 
-**Project Website:**  
+**Project Webpage:**  
 https://www.shaneaune.com/my-projects/Shanes-Unblocker/
+
+---
+
+## Download
+
+The latest version of Shane's Unblocker can always be downloaded from the Releases page.
+
+https://github.com/shaneaune/Shanes-Unblocker/releases/latest
+
+Download the ZIP file attached to the latest release.
 
 ---
 

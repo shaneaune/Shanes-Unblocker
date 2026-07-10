@@ -1,75 +1,180 @@
-==================================================
-Shane's Unblocker
-Version 1.0.0
+# Shane's Unblocker
+
+A simple Windows utility that restores PDF previews in File Explorer by removing the **Mark of the Web** from blocked PDF files.
+
+**Current Version:** 1.0.0
+
+**Project Website:**  
 https://www.shaneaune.com/my-projects/Shanes-Unblocker/
-==================================================
 
-Microsoft introduced a security update for Windows 10 and Windows 11 that prevents File Explorer from previewing many PDF files downloaded from the Internet. Trying to preview a PDF shows a "The file you are attempting to preview could harm your computer. If you trust the file and the source you received it from, open it to view its contents" in the preview pane. While PowerShell provides the Unblock-File command, many Windows users are unfamiliar with PowerShell or need to unlock hundreds or even thousands of PDF files at once.
+---
 
-Shane's Unblocker provides a simple right-click solution that removes the Windows "Mark of the Web" from blocked PDF files, restoring PDF previews in Windows Explorer without requiring PowerShell knowledge.
+## Why was this created?
 
+Microsoft introduced a security update for Windows 10 and Windows 11 that prevents File Explorer from previewing many PDF files downloaded from the Internet.
 
-Installation
-------------
-1. Unzip the file and copy the Shanes-Unblocker folder to a permanent location on your computer.
+Instead of displaying the preview, File Explorer shows:
 
-   Recommended:
-   C:\Shanes-Unblocker
+> "The file you are attempting to preview could harm your computer. If you trust the file and the source you received it from, open it to view its contents."
 
-   You may also place it in another permanent location, such as
-   C:\Program Files\Shanes-Unblocker, provided you have permission to do so.
+While Windows includes the `Unblock-File` PowerShell command, many users are unfamiliar with PowerShell or need to unblock hundreds or even thousands of PDF files.
 
-2. Do not move or rename the folder after installation.
-   If you do, simply run Uninstall.bat, move the folder, then run Install.bat again.
+**Shane's Unblocker** provides a simple right-click solution that removes the Windows **Mark of the Web** from blocked PDF files, restoring PDF previews without requiring PowerShell knowledge.
 
-3. Double-click Install.bat. ( Windows 10 - select "More info" followed by "Run anyway" to continue the installation)
+If you find this project useful, I'd love to hear from you.
 
-4. Right-click any folder containing PDF files.
+---
 
-5. Windows 11 - Select Show more options (not necessary in Windows 10) 
+# Screenshots
 
-6. Select "Unlock PDFs" and the program will run and show you the status. 
+## Blocked PDF Preview
 
-Note
-----
+Before unlocking, File Explorer displays the following message instead of a preview.
+
+![Blocked Preview](screenshots/preview-blocked.png)
+
+---
+
+## Windows 11
+
+On Windows 11, select **Show more options**.
+
+![Windows 11 Context Menu](screenshots/show-more-options.png)
+
+---
+
+## Unlock PDFs
+
+Right-click the folder containing your PDF files and select **Unlock PDFs**.
+
+![Unlock PDFs](screenshots/unlock-pdfs-menu.png)
+
+---
+
+## Progress Window
+
+The program displays live progress while scanning.
+
+![Application Window](screenshots/unblocker-window.png)
+
+---
+
+## Preview Restored
+
+Once the PDFs have been unlocked, previews work normally again.
+
+![Preview Restored](screenshots/preview-restored.png)
+
+---
+
+# Installation
+
+1. Extract the ZIP file.
+
+2. Copy the **Shanes-Unblocker** folder to a permanent location.
+
+Recommended:
+
+```text
+C:\Shanes-Unblocker
+```
+
+You may also use another permanent location, such as:
+
+```text
+C:\Program Files\Shanes-Unblocker
+```
+
+3. Do **not** move or rename the folder after installation.
+
+If you do, simply run **Uninstall.bat**, move the folder, then run **Install.bat** again.
+
+4. Double-click **Install.bat**.
+
+Windows 10 users may see a Windows Defender SmartScreen warning. Select:
+
+**More info → Run anyway**
+
+5. Right-click any folder containing PDF files.
+
+6. Windows 11 users:
+
+Select **Show more options**.
+
+7. Select **Unlock PDFs**.
+
+The program will automatically scan the selected folder and all subfolders.
+
+---
+
+# Features
+
+- Adds an **Unlock PDFs** option to the Windows Explorer context menu.
+- Recursively scans the selected folder and all subfolders.
+- Can scan an entire drive (large drives may take longer).
+- Unlocks only PDF files that are actually blocked.
+- Displays a live scrolling progress log.
+- Displays a completion summary.
+- Automatically refreshes File Explorer when the scan completes.
+- Installs for the current user only.
+- Does not require Administrator privileges.
+
+---
+
+# Notes
+
 After unlocking PDFs, File Explorer may not refresh the preview pane immediately.
-If the security message still appears, click another file, press F5, or close and reopen the folder.
 
-Features
---------
-• Adds an "Unlock PDFs" option to the Windows Explorer context menu.
-• Recursively scans the selected folder and all subfolders.
-• Can scan an entire drive if desired (large drives may take longer).
-• Unlocks only PDF files that are actually blocked.
-• Displays live progress during the scan.
-• Displays a summary when the scan is complete.
-• Automatically refreshes File Explorer when finished.
-• Installs for the current user only.
-• No administrator privileges required.
+If the security message still appears:
 
-Uninstall
----------
-Run Uninstall-RightClick.bat.
+- Click another file.
+- Press **F5**.
+- Close and reopen the folder.
 
-Security
---------
+---
+
+# Uninstall
+
+Run:
+
+```
+Uninstall.bat
+```
+
+---
+
+# Security
+
 Shane's Unblocker is an open-source PowerShell utility.
 
-Because it is not digitally signed, Windows Defender SmartScreen may display a warning the first time it is run.
+Because it is **not digitally signed**, Windows Defender SmartScreen may display a warning the first time it is run.
 
-If you downloaded Shane's Unblocker from the official GitHub repository or shaneaune.com, select "More info" followed by "Run anyway" to continue the installation.
-
-Source Code
------------
-The complete source code is included and may be reviewed before installation.
-
-Support
--------
-For updates, documentation and the latest version, visit:
+If you downloaded Shane's Unblocker from the official GitHub repository or from:
 
 https://www.shaneaune.com/my-projects/Shanes-Unblocker/
 
-Developed by
-------------
-Shane Aune
-shaneaune.com
+select:
+
+**More info → Run anyway**
+
+---
+
+# Source Code
+
+The complete source code is included and may be reviewed before installation.
+
+---
+
+# Support
+
+For updates, documentation, and the latest version, visit:
+
+https://www.shaneaune.com/my-projects/Shanes-Unblocker/
+
+---
+
+# Contact
+
+**Developed by Shane Aune**
+
+Email: shaneaune@gmail.com

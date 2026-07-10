@@ -1,0 +1,7 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Classes\Directory\shell\UnblockPDFs]
+@="Unblock PDFs in this folder"
+
+[HKEY_CURRENT_USER\Software\Classes\Directory\shell\UnblockPDFs\command]
+@="powershell.exe -ExecutionPolicy Bypass -File \"C:\\Tools\\PDF-Unblock\\Unblock-PDFs.ps1\" \"%1\""

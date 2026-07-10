@@ -165,6 +165,14 @@ The complete source code is included and may be reviewed before installation.
 
 ---
 
+## License
+
+Shane's Unblocker is released under the MIT License.
+
+See the LICENSE file for details.
+
+---
+
 # Support
 
 For updates, documentation, and the latest version, visit:

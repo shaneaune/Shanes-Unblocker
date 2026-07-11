@@ -47,7 +47,7 @@ Before unlocking, File Explorer displays the following message instead of a prev
 
 ## Windows 11
 
-On Windows 11, select **Show more options**.
+On Windows 11, right click on the folder and select **Show more options**.
 
 ![Windows 11 Context Menu](screenshots/show-more-options.png)
 

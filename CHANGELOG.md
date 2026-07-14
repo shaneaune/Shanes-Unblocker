@@ -22,3 +22,8 @@ Features
 - Installs for the current user only.
 - Does not require Administrator privileges.
 - Automatically detects its installation folder during installation.
+
+Version 1.1.0 (2026-07-14)
+Features
+--------
+- Added checkbox to auto close the log page after a sucessful scan.

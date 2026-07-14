@@ -2,7 +2,7 @@
 
 A simple Windows utility that restores PDF previews in File Explorer by removing the **Mark of the Web** from blocked PDF files.
 
-**Current Version:** 1.0.0
+**Current Version:** 1.1.0
 
 **Project Webpage:**  
 https://www.shaneaune.com/my-projects/Shanes-Unblocker/

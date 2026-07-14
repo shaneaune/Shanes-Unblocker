@@ -6,7 +6,7 @@ setlocal
 :: Uninstaller
 ::=================================================
 
-set "VERSION=1.0"
+set "VERSION=1.1"
 
 title Shane's Unblocker Uninstaller
 

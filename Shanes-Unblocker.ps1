@@ -46,7 +46,7 @@ public class ShellRefresh {
 ###############################################################################
 
 $AppName = "Shane's Unblocker"
-$Version = "1.0.0"
+$Version = "1.1.0"
 $Release = "July 2026"
 $Website = "https://www.shaneaune.com/my-projects/Shanes-Unblocker/"
 

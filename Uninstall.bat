@@ -6,7 +6,7 @@ setlocal
 :: Uninstaller
 ::=================================================
 
-set "VERSION=1.1.0"
+set "VERSION=1.2.0"
 
 title Shane's Unblocker Uninstaller
 
@@ -22,6 +22,7 @@ echo.
 
 :: Remove the Windows Explorer context-menu entry.
 reg delete "HKCU\Software\Classes\Directory\shell\ShanesUnblocker" /f >nul 2>&1
+reg delete "HKCU\Software\Classes\SystemFileAssociations\.pdf\shell\ShanesUnblocker" /f >nul 2>&1
 
 :: Remove saved user settings, including the auto-close preference.
 reg delete "HKCU\Software\Shanes-Unblocker" /f >nul 2>&1

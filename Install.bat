@@ -6,7 +6,7 @@ setlocal
 :: Installer
 ::=================================================
 
-set "VERSION=1.1.0"
+set "VERSION=1.2.0"
 
 title Shane's Unblocker Installer
 
@@ -38,6 +38,20 @@ reg add "HKCU\Software\Classes\Directory\shell\ShanesUnblocker" ^
 /f
 
 reg add "HKCU\Software\Classes\Directory\shell\ShanesUnblocker\command" ^
+/ve ^
+/d "powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File \"%INSTALLDIR%\Shanes-Unblocker.ps1\" \"%%1\"" ^
+/f
+
+REM Add a separate context-menu command for individual PDF files.
+REM This does not change the default PDF file association.
+reg add "HKCU\Software\Classes\SystemFileAssociations\.pdf\shell\ShanesUnblocker" /ve /d "Unlock PDF" /f
+
+reg add "HKCU\Software\Classes\SystemFileAssociations\.pdf\shell\ShanesUnblocker" ^
+/v Icon ^
+/d "\"%INSTALLDIR%\Shanes-Unblocker.ico\"" ^
+/f
+
+reg add "HKCU\Software\Classes\SystemFileAssociations\.pdf\shell\ShanesUnblocker\command" ^
 /ve ^
 /d "powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File \"%INSTALLDIR%\Shanes-Unblocker.ps1\" \"%%1\"" ^
 /f

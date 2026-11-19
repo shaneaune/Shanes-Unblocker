@@ -27,3 +27,13 @@ Version 1.1.0 (2026-07-14)
 Features
 --------
 - Added checkbox to auto close the log page after a sucessful scan.
+
+Version 1.2.0 (2026-11-19)
+----------------------------
+Features
+--------
+- Added an "Unlock PDF" Windows Explorer context-menu option for individual PDF files.
+- Preserved the existing "Unlock PDFs" recursive folder scan.
+- Single-file operations use the existing progress window, scan summary, and optional auto-close behavior.
+- Updated the installer and uninstaller to add and remove both context-menu entries.
+- Standardized displayed version numbers across the PowerShell script, installer, and uninstaller.

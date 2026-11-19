@@ -2,7 +2,7 @@
 
 A simple Windows utility that restores PDF previews in File Explorer by removing the **Mark of the Web** from blocked PDF files.
 
-**Current Version:** 1.1.0
+**Current Version:** 1.2.0
 
 **Project Webpage:**  
 https://www.shaneaune.com/my-projects/Shanes-Unblocker/
@@ -55,7 +55,9 @@ On Windows 11, right click on the folder and select **Show more options**.
 
 ## Unlock PDFs
 
-Right-click the folder containing your PDF files and select **Unlock PDFs**.
+Right-click the folder containing your PDF files and select **Unlock PDFs** to scan that folder and all subfolders.
+
+To unblock just one file, right-click that PDF and select **Unlock PDF**. On Windows 11, select **Show more options** first.
 
 ![Unlock PDFs](screenshots/unlock-pdfs-menu.png)
 
@@ -105,26 +107,25 @@ Windows 10 users may see a Windows Defender SmartScreen warning. Select:
 
 **More info → Run anyway**
 
-5. Right-click any folder containing PDF files.
+5. Right-click a PDF file or a folder containing PDF files.
 
-6. Windows 11 users:
+6. On Windows 11, select **Show more options**.
 
-Select **Show more options**.
+7. Choose **Unlock PDF** for a single file, or **Unlock PDFs** for a folder.
 
-7. Select **Unlock PDFs**.
-
-The program will automatically scan the selected folder and all subfolders.
+The program will automatically process the selected PDF or recursively scan the selected folder and its subfolders.
 
 ---
 
 # Features
 
-- Adds an **Unlock PDFs** option to the Windows Explorer context menu.
+- Adds **Unlock PDF** for individual PDF files and **Unlock PDFs** for folders to the Windows Explorer context menu.
 - Recursively scans the selected folder and all subfolders.
 - Can scan an entire drive (large drives may take longer).
 - Unlocks only PDF files that are actually blocked.
 - Displays a live scrolling progress log.
 - Displays a completion summary.
+- Optional automatic closing after a successful unblock operation (when at least one PDF was unblocked and no errors occurred).
 - Automatically refreshes File Explorer when the scan completes.
 - Installs for the current user only.
 - Does not require Administrator privileges.

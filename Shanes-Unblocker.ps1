@@ -1,6 +1,6 @@
 ###############################################################################
 # Shane's Unblocker
-# Version 1.1.0
+# Version 1.2.0
 #
 # Removes the Windows Mark of the Web (Zone.Identifier) from blocked PDF files
 # so File Explorer can preview them again.
@@ -46,7 +46,7 @@ public class ShellRefresh {
 ###############################################################################
 
 $AppName = "Shane's Unblocker"
-$Version = "1.1.0"
+$Version = "1.2.0"
 $Release = "July 2026"
 $Website = "https://www.shaneaune.com/my-projects/Shanes-Unblocker/"
 
@@ -64,10 +64,27 @@ function Start-UnblockScan {
 
     # Stop immediately if the folder passed by the Explorer context menu no
     # longer exists or cannot be accessed.
-    if (-not (Test-Path $FolderPath)) {
-        $outputBox.AppendText("Folder not found: $FolderPath`r`n")
+    if (-not (Test-Path -LiteralPath $FolderPath)) {
+        $outputBox.AppendText("File or folder not found: $FolderPath`r`n")
         $statusLabel.Text = "Error"
         return
+    }
+
+    # A PDF file is processed on its own; a folder retains the original
+    # recursive scan behavior. Reject other file types explicitly.
+    $isSingleFile = Test-Path -LiteralPath $FolderPath -PathType Leaf
+    if ($isSingleFile -and
+        [System.IO.Path]::GetExtension($FolderPath) -ine '.pdf') {
+        $outputBox.AppendText("The selected file is not a PDF: $FolderPath`r`n")
+        $statusLabel.Text = "Error"
+        return
+    }
+
+    if ($isSingleFile) {
+        $selectionLabel = "Selected File"
+    }
+    else {
+        $selectionLabel = "Selected Folder"
     }
 
     $statusLabel.Text = "Counting PDF files..."
@@ -75,14 +92,19 @@ function Start-UnblockScan {
 
     # Build the complete file list once, then reuse it for both the warning and
     # the scan. This avoids recursively enumerating a large folder twice.
-    $pdfFiles = @(
-        Get-ChildItem `
-            -Path $FolderPath `
-            -Recurse `
-            -File `
-            -Filter *.pdf `
-            -ErrorAction SilentlyContinue
-    )
+    if ($isSingleFile) {
+        $pdfFiles = @(Get-Item -LiteralPath $FolderPath -ErrorAction Stop)
+    }
+    else {
+        $pdfFiles = @(
+            Get-ChildItem `
+                -LiteralPath $FolderPath `
+                -Recurse `
+                -File `
+                -Filter *.pdf `
+                -ErrorAction SilentlyContinue
+        )
+    }
 
     $pdfCount = $pdfFiles.Count
 
@@ -113,7 +135,7 @@ function Start-UnblockScan {
     $outputBox.AppendText("Version $Version`r`n")
     $outputBox.AppendText("========================================`r`n")
     $outputBox.AppendText("`r`n")
-    $outputBox.AppendText("Selected Folder:`r`n")
+    $outputBox.AppendText("${selectionLabel}:`r`n")
     $outputBox.AppendText("$FolderPath`r`n")
     $outputBox.AppendText("`r`n")
     $outputBox.AppendText("PDF files found: $pdfCount`r`n")
@@ -271,7 +293,14 @@ $versionLabel.TextAlign = "MiddleRight"
 $form.Controls.Add($versionLabel)
 
 $folderLabel = New-Object System.Windows.Forms.Label
-$folderLabel.Text = "Selected Folder:`r`n$FolderPath"
+$selectedItemLabel = if ([System.IO.Path]::GetExtension($FolderPath) -ieq '.pdf' -and
+    (Test-Path -LiteralPath $FolderPath -PathType Leaf)) {
+    "Selected File"
+}
+else {
+    "Selected Folder"
+}
+$folderLabel.Text = "${selectedItemLabel}:`r`n$FolderPath"
 $folderLabel.Location = New-Object System.Drawing.Point(10, 45)
 $folderLabel.Size = New-Object System.Drawing.Size(860, 45)
 $form.Controls.Add($folderLabel)
